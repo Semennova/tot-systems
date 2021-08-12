@@ -1,24 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter, Route } from 'react-router-dom'
+import './App.css'
+import { FloodChatContainer } from './Components/FloodChat/FloodChatContainer'
+import  HeaderContainer  from './Components/Header/HeaderContainer'
+import { LoginContainer } from './Components/Login/LoginContainer'
+import { Nav } from './Components/Navigation/Nav'
+import { WorkChatContainer } from './Components/WorkChat/WorkChatContainer'
 
-function App() {
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+        <div className="App">
+          <HeaderContainer />
+          <Nav />
+            <Route path='/work' render={()=>  <WorkChatContainer />}/>
+            <Route path='/flood' render={()=> <FloodChatContainer />}/>
+            <Route path='/login' render={()=> <LoginContainer />}/>
+        </div>
+    </BrowserRouter>
   );
 }
 
