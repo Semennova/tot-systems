@@ -46,8 +46,8 @@ export const Login = (props) => {
             <form className={s.loginForm} onSubmit={submitUser}>
             <h1>Log in <ExitToAppIcon style={{fontSize: 22}}/></h1>
                 
-                <input className={s.loginInput} type='text' style={loginError ? errorStyle : null} value={loginValue} onChange={(e)=>setLoginValue(e.target.value)}/>
-                <input className={s.loginInput} type='password' style={passwordError ? errorStyle : null} value={passwordValue} onChange={(e)=>setPasswordValue(e.target.value)}/>
+                <input placeholder='Enter login' className={s.loginInput} type='text' style={loginError ? errorStyle : null} value={loginValue} onChange={(e)=>setLoginValue(e.target.value)}/>
+                <input placeholder='Enter password' className={s.loginInput} type='password' style={passwordError ? errorStyle : null} value={passwordValue} onChange={(e)=>setPasswordValue(e.target.value)}/>
                 
                 {loginError && <div className={s.loginError}>Login must be between 4 and 6 letters</div>}
                 {passwordError && <div className={s.loginError}>Please, enter your password</div>}
