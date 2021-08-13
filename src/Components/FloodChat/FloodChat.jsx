@@ -9,13 +9,12 @@ export const FloodChat = (props) => {
     const [messageValue, setMessageValue] = useState('')
     const [edit, setEdit] = useState(null)
     const [editMessageValue, setEditMessageValue] = useState('')
-    const [emptyMsgError, setemptyMsgError] = useState(false)
+    const [emptyMsgError, setEmptyMsgError] = useState(false)
 
     const submitMessage = () => {
-  
         if(!messageValue) {
-            setemptyMsgError(true);
-            setTimeout(()=> setemptyMsgError(false), 3000)
+            setEmptyMsgError(true);
+            setTimeout(()=> setEmptyMsgError(false), 3000)
         } else {
             const newMessage = {
                 id: Math.floor(Math.random() * 10000),
@@ -43,7 +42,7 @@ export const FloodChat = (props) => {
             }
             return m
         })
-        props.upadateMessage(newMessagesArray)
+        props.upadateFloodMessage(newMessagesArray)
         setEdit(null)
     }
 
@@ -55,6 +54,7 @@ export const FloodChat = (props) => {
              {emptyMsgError && <div className={s.emptyMsgError}>Please, enter your message!</div>}
              <input className={s.floodInput} placeholder='Enter flood message...' value={messageValue} onChange={(e)=>setMessageValue(e.target.value) }/>
             <button className={`${s.btn} ${s.sendBtn}`} onClick={()=>submitMessage()}><SendIcon style={{fontSize: 20}}/></button>
+            
             {props.messages.map(m=> (
                 <div key={m.id} className={s.messages}>
                     {edit !== m.id ? <div>

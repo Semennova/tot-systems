@@ -25,13 +25,13 @@ export const loginReducer = (state = initialState, action) => {
 }
 
 
-export const setUserDataAC = (login, password) => ({
+export const setUserData = (login, password) => ({
     type: SET_USER_DATA,
     payload: {login, password}
 
 })
 
-export const setIsAuthAC = (auth) => ({
+export const setIsAuth = (auth) => ({
     type: SET_IS_AUTH,
     payload: auth
 })

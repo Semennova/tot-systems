@@ -3,11 +3,19 @@ import logo from '../../Img/logo.png'
 
 export const Header = (props) => {
 
+    const logout = (e)=> {
+        e.preventDefault()
+        props.setIsAuth(false)
+    }
+
     return (
+
         <div className={s.headerContainer}>
-            <img className={s.logo} src={logo}/>
-            <h2>PLANCTONICS</h2>
-           {props.isAuth ? <button onClick={()=> props.setIsAuth(false)} className={s.logBtn}>Logout</button> : <button className={s.logBtn} onClick={()=> props.history.push('/login')}>Login</button>}
+
+                <img alt='logo' className={s.logo} src={logo}/>
+                <h2>PLANCTONICS</h2>
+          
+           {props.isAuth ? <button onClick={logout} className={s.logBtn}>Logout</button> : <button className={s.logBtn} onClick={()=> props.history.push('/login')}>Login</button>}
         </div>
     )
 }

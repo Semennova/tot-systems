@@ -1,4 +1,4 @@
-.headerContainer{
+.headerContainer {
     grid-area: header;
     background: #fff;
     border-radius: 8px;
@@ -10,19 +10,24 @@
 .headerContainer h2 {
     color: #36373C;
     padding-left: 20px;
-    
 }
 
-.logo{
+.logo {
     margin-left: 20px;
     margin-top: 5px;
     width: 60px;
     height: 60px
 }
 
-.logBtn{
+.logBtn {
     margin-left: auto;
     margin-right: 10px;
-    height: 20px;
     align-self: center;
+    padding: 15px;
+    border-radius: 10px;
+    border: 1px #36373C solid;
+}
+
+.logBtn:hover {
+    cursor: pointer
 }

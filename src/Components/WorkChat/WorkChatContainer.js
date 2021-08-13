@@ -1,22 +1,23 @@
 import { connect } from "react-redux";
-import { setMessagesAC, addMessageAC, deleteMessageAC, updateMessageAC } from "../../redux/work-reducer";
+import { setWorkMessages, addWorkMessage, deleteWorkMessage, updateWorkMessage } from "../../redux/work-reducer";
 import { WorkChat } from "./WorkChat";
 import { useEffect } from 'react';
 import data from '../../StaticState/dataForWork.json'
-import { Redirect } from "react-router-dom";
+import { withAuthRedirect } from "../../Hoc/withRedirectToLogin";
+import { compose } from "redux";
 
 
 const WorkChatAPIContainer = (props) => {
 
     useEffect(()=> {
-        props.setMessages(data)
+        props.setWorkMessages(data)
     },[])
 
         
     useEffect(()=> {
         let data = JSON.parse(localStorage.getItem('work-messages'));
         if(data){
-          props.setMessages(data)
+          props.setWorkMessages(data)
         }
       }, []);
 
@@ -25,28 +26,27 @@ const WorkChatAPIContainer = (props) => {
         localStorage.setItem('work-messages', JSON.stringify(props.messages))
     },[props.messages])
 
-    if(!props.isAuth){
-        return <Redirect to='/login' />
-    }
-
 
     return <WorkChat messages={props.messages}
-                     addMessage={props.addMessage}
-                     setMessages={props.setMessages}
-                     deleteMessage={props.deleteMessage}
-                     updateMessage={props.updateMessage}
+                     addWorkMessage={props.addWorkMessage}
+                     deleteWorkMessage={props.deleteWorkMessage}
+                     updateWorkMessage={props.updateWorkMessage}
+                     setWorkMessages={props.setWorkMessages}
+                     
                      />
 }
 
 
 const mapStateToProps = (state) => ({
     messages: state.work.messages,
-    isAuth: state.auth.isAuth
+    isAuth: state.auth.isAuth,
+    login: state.auth.login
 })
 
-export const WorkChatContainer = connect(mapStateToProps, {
-    setMessages: setMessagesAC,
-    addMessage: addMessageAC,
-    deleteMessage: deleteMessageAC,
-    updateMessage: updateMessageAC
-})(WorkChatAPIContainer)
+
+export default compose(connect(mapStateToProps, {
+    setWorkMessages,
+    addWorkMessage,
+    deleteWorkMessage,
+    updateWorkMessage
+}), withAuthRedirect)(WorkChatAPIContainer)

@@ -1,9 +1,10 @@
 import { connect } from "react-redux"
-import { setFloodMessagesAC, addFloodMessageAC, deleteFloodMessageAC, upadateMessageAC } from "../../redux/flood-reducer"
+import { setFloodMessages, addFloodMessage, deleteFloodMessage, upadateFloodMessage } from "../../redux/flood-reducer"
 import { FloodChat } from "./FloodChat"
 import { useEffect } from 'react'
 import  data  from '../../StaticState/dataForFlood.json'
-import { Redirect } from "react-router-dom"
+import { compose } from "redux"
+import { withAuthRedirect } from "../../Hoc/withRedirectToLogin"
 
 
 const FloodChatApiContainer = (props) => {
@@ -17,24 +18,17 @@ const FloodChatApiContainer = (props) => {
         if(data){
             props.setFloodMessages(data)
         }
-        console.log('get')
     }, [])
 
     useEffect(() => {
         localStorage.setItem('flood-messages', JSON.stringify(props.messages));
-        console.log('set')
       }, [props.messages]);
-
-    
-      if(!props.isAuth){
-        return <Redirect to='/login' />
-    }
     
     return <FloodChat messages={props.messages}
                       setFloodMessages={props.setFloodMessages}
                       addFloodMessage={props.addFloodMessage}
                       deleteFloodMessage={props.deleteFloodMessage}
-                      upadateMessage={props.upadateMessage}
+                      upadateFloodMessage={props.upadateFloodMessage}
                                                     />
 }
 
@@ -43,9 +37,11 @@ const mapStateToProps = (state) => ({
     isAuth: state.auth.isAuth
 })
 
-export const FloodChatContainer = connect(mapStateToProps, {
-    setFloodMessages: setFloodMessagesAC,
-    addFloodMessage: addFloodMessageAC,
-    deleteFloodMessage: deleteFloodMessageAC,
-    upadateMessage: upadateMessageAC
-})(FloodChatApiContainer)
+
+
+export default compose(connect(mapStateToProps, {
+    setFloodMessages,
+    addFloodMessage,
+    deleteFloodMessage,
+    upadateFloodMessage
+}), withAuthRedirect)(FloodChatApiContainer)

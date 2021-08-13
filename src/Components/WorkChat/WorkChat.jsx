@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import s from './WorkChat.module.css'
 import EditIcon from '@material-ui/icons/Edit'
 import DeleteOutlineIcon from '@material-ui/icons/DeleteOutline'
@@ -6,7 +6,6 @@ import BeenhereIcon from '@material-ui/icons/Beenhere'
 import SendIcon from '@material-ui/icons/Send'
 
 export const WorkChat = (props) => {
-    
 
     const [messageValue, setMessageValue] = useState('')
     const [edit, setEdit] = useState(null)
@@ -23,14 +22,14 @@ export const WorkChat = (props) => {
                 id: Math.floor(Math.random() * 10000),
                 message: messageValue
             }
-            props.addMessage(newMessage);
+            props.addWorkMessage(newMessage);
             setMessageValue('')
         }
         
     }
 
     const removeMsg = (id) => {
-        props.deleteMessage(id)
+        props.deleteWorkMessage(id)
     }
 
     const goToEditMode = (message) => {
@@ -45,10 +44,9 @@ export const WorkChat = (props) => {
             }
             return m
         })
-        props.updateMessage(newMessagesArray);
+        props.updateWorkMessage(newMessagesArray);
         setEdit(null)
     }
-
 
 
     return (
@@ -57,6 +55,7 @@ export const WorkChat = (props) => {
            <input className={s.workInput} placeholder='Enter work message...' onChange={(e)=> setMessageValue(e.target.value)} value={messageValue}/>
            <button className={`${s.btn} ${s.sendBtn}`} onClick={()=>submitMessage()}><SendIcon style={{fontSize: 20}}/></button>
            <div>
+               
                 {props.messages.map(m => (
                     <div key={m.id} className={s.messages}>
                         {edit !== m.id ? <div>

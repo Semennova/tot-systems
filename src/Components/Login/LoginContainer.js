@@ -1,6 +1,19 @@
-import { connect } from "react-redux"
-import { setUserDataAC, setIsAuthAC } from "../../redux/login-reducer"
-import { Login } from "./Login"
+import { connect } from 'react-redux'
+import { setUserData, setIsAuth } from '../../redux/login-reducer'
+import { Login } from './Login'
+
+
+
+const LoginApiContainer = (props) => {
+
+    return <Login   setUserData={props.setUserData} 
+                    setIsAuth={props.setIsAuth}
+                    isAuth={props.isAuth}
+                    login={props.login}
+                    password={props.password}
+
+                    />
+}
 
 const mapStateToProps = (state) => ({
     login: state.auth.login,
@@ -9,7 +22,7 @@ const mapStateToProps = (state) => ({
 })
 
 export const LoginContainer = connect(mapStateToProps, {
-    setUserData: setUserDataAC,
-    setIsAuth: setIsAuthAC
-})(Login)
+    setUserData,
+    setIsAuth
+})(LoginApiContainer)
 

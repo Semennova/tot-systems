@@ -1,8 +1,6 @@
-import React from 'react'
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
-import { setIsAuthAC } from '../../redux/login-reducer'
-import { Login } from '../Login/Login'
+import { setIsAuth } from '../../redux/login-reducer'
 import { Header } from './Header'
 
 const mapStateToProps = (state) => ({
@@ -10,7 +8,7 @@ const mapStateToProps = (state) => ({
 })
 
 export const HeaderContainer = connect(mapStateToProps, {
-    setIsAuth: setIsAuthAC
+    setIsAuth
 })(Header)
 
 export default withRouter(HeaderContainer)

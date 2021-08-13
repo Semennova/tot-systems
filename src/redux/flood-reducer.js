@@ -4,11 +4,7 @@ const DELETE_FLOOD_MESSAGE = 'DELETE_FLOOD_MESSAGE'
 const UPDATE_FLOOD_MESSAGE = 'UPDATE_FLOOD_MESSAGE'
 
 const initialState = {
-    messages: [
-        {id: Math.floor(Math.random() * 10000), message: 'Flood message'},
-        {id: Math.floor(Math.random() * 10000), message: 'I can type anything I want'},
-        {id: Math.floor(Math.random() * 10000), message: 'Did you work out this morning??'}
-    ]
+    messages: []
    
 }
 
@@ -39,22 +35,22 @@ export const floodReducer = (state = initialState, action) => {
     }
 }
 
-export const setFloodMessagesAC = (messages) => ({
+export const setFloodMessages = (messages) => ({
     type: SET_FLOOD_MESSAGES,
     payload: messages
 })
 
-export const addFloodMessageAC = (message) => ({
+export const addFloodMessage = (message) => ({
     type: ADD_FLOOD_MESSAGE,
     payload: message
 })
 
-export const deleteFloodMessageAC = (id) => ({
+export const deleteFloodMessage = (id) => ({
     type: DELETE_FLOOD_MESSAGE,
     payload: id
 })
 
-export const upadateMessageAC = (array) => ({
+export const upadateFloodMessage = (array) => ({
     type: UPDATE_FLOOD_MESSAGE,
     payload: array
 })
