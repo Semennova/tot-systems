@@ -7,13 +7,6 @@ import { useEffect } from 'react'
 
 const LoginApiContainer = (props) => {
 
-    
-    // useEffect(()=> {
-    //     if(!props.login || !props.password){
-    //         props.setIsAuth(false)
-    //     }
-    // },[])
-
     return <Login   setUserData={props.setUserData} 
                     setIsAuth={props.setIsAuth}
                     isAuth={props.isAuth}
