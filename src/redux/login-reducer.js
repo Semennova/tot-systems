@@ -1,5 +1,6 @@
 const SET_USER_DATA = 'SET_USER_DATA'
 const SET_IS_AUTH = 'SET_IS_AUTH'
+const LOGOUT = 'LOGOUT'
 
 const initialState = {
     login: null,
@@ -12,28 +13,38 @@ export const loginReducer = (state = initialState, action) => {
         case SET_USER_DATA :
             return {
                 ...state,
-                ...action.payload
+                login: action.login,
+                password: action.password,
+                isAuth: action.isAuth
             }
         case SET_IS_AUTH : 
             return {
                 ...state,
                 isAuth: action.payload
             }
+
         default: 
             return state
     }
 }
 
 
-export const setUserData = (login, password) => ({
+export const setUserData = (login, password, isAuth) => ({
     type: SET_USER_DATA,
-    payload: {login, password}
+    login, 
+    password, 
+    isAuth
 
 })
 
-export const setIsAuth = (auth) => ({
+export const setIsAuth = (isAuth) => ({
     type: SET_IS_AUTH,
-    payload: auth
+    payload: isAuth
+})
+
+export const logout = (isAuth) => ({
+    type: LOGOUT,
+    payload: isAuth
 })
 
 

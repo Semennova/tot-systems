@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import s from './Login.module.css'
 import ExitToAppIcon from '@material-ui/icons/ExitToApp'
 import { Redirect } from 'react-router-dom'
@@ -7,7 +7,14 @@ export const Login = (props) => {
     const [loginValue, setLoginValue] = useState('');
     const [passwordValue, setPasswordValue] = useState('');
     const [loginError, setLoginError] = useState(false);
-    const [passwordError, setPassWordError] = useState(false)
+    const [passwordError, setPassWordError] = useState(false);
+
+    useEffect(()=>{ 
+        const data = JSON.parse(localStorage.getItem('user-data'))
+        if(data){
+            props.setIsAuth(true)
+        }
+    })
 
     const errorStyle = {
         border: 'red 2px solid'
@@ -25,34 +32,32 @@ export const Login = (props) => {
         } else if (!passwordValue) {
             setPassWordError(true)
             setTimeout(()=> setPassWordError(false), 3000)
-        } else{
-            const userData = {
-                login: loginValue,
-                password: passwordValue
-            }
-     
-            props.setUserData(userData);
-            props.setIsAuth(true);
+        } else {
+            props.setUserData(loginValue, passwordValue, true);
+            localStorage.setItem('user-data', JSON.stringify({loginValue, passwordValue}))
         }
     }
 
+
     if(props.isAuth){
         return <Redirect to='/work' />
+       
     }
 
     return (
         <div className={s.loginContainer}>
           
-            <form className={s.loginForm} onSubmit={submitUser}>
+            <form className={s.loginForm}>
             <h1>Log in <ExitToAppIcon style={{fontSize: 22}}/></h1>
                 
                 <input placeholder='Enter login' className={s.loginInput} type='text' style={loginError ? errorStyle : null} value={loginValue} onChange={(e)=>setLoginValue(e.target.value)}/>
+                
                 <input placeholder='Enter password' className={s.loginInput} type='password' style={passwordError ? errorStyle : null} value={passwordValue} onChange={(e)=>setPasswordValue(e.target.value)}/>
                 
                 {loginError && <div className={s.loginError}>Login must be between 4 and 6 letters</div>}
                 {passwordError && <div className={s.loginError}>Please, enter your password</div>}
                 
-                <button className={s.submitBtn}>Submit</button>
+                <button onClick={submitUser} className={s.submitBtn}>Submit</button>
             </form>
         </div>
     )
