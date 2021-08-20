@@ -1,22 +1,22 @@
 {
   "files": {
     "main.css": "/tot-systems/static/css/main.3abbdc5f.chunk.css",
-    "main.js": "/tot-systems/static/js/main.4c6fc929.chunk.js",
-    "main.js.map": "/tot-systems/static/js/main.4c6fc929.chunk.js.map",
+    "main.js": "/tot-systems/static/js/main.922a7304.chunk.js",
+    "main.js.map": "/tot-systems/static/js/main.922a7304.chunk.js.map",
     "runtime-main.js": "/tot-systems/static/js/runtime-main.bed30fa5.js",
     "runtime-main.js.map": "/tot-systems/static/js/runtime-main.bed30fa5.js.map",
-    "static/js/2.990c4bf8.chunk.js": "/tot-systems/static/js/2.990c4bf8.chunk.js",
-    "static/js/2.990c4bf8.chunk.js.map": "/tot-systems/static/js/2.990c4bf8.chunk.js.map",
+    "static/js/2.184c39ed.chunk.js": "/tot-systems/static/js/2.184c39ed.chunk.js",
+    "static/js/2.184c39ed.chunk.js.map": "/tot-systems/static/js/2.184c39ed.chunk.js.map",
     "static/js/3.06318880.chunk.js": "/tot-systems/static/js/3.06318880.chunk.js",
     "static/js/3.06318880.chunk.js.map": "/tot-systems/static/js/3.06318880.chunk.js.map",
     "index.html": "/tot-systems/index.html",
     "static/css/main.3abbdc5f.chunk.css.map": "/tot-systems/static/css/main.3abbdc5f.chunk.css.map",
-    "static/js/2.990c4bf8.chunk.js.LICENSE.txt": "/tot-systems/static/js/2.990c4bf8.chunk.js.LICENSE.txt"
+    "static/js/2.184c39ed.chunk.js.LICENSE.txt": "/tot-systems/static/js/2.184c39ed.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.bed30fa5.js",
-    "static/js/2.990c4bf8.chunk.js",
+    "static/js/2.184c39ed.chunk.js",
     "static/css/main.3abbdc5f.chunk.css",
-    "static/js/main.4c6fc929.chunk.js"
+    "static/js/main.922a7304.chunk.js"
   ]
 }
