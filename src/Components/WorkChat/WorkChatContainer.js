@@ -5,6 +5,7 @@ import { useEffect } from 'react';
 import data from '../../StaticState/dataForWork.json'
 import { withAuthRedirect } from "../../Hoc/withRedirectToLogin";
 import { compose } from "redux";
+import { setUserData } from "../../redux/login-reducer";
 
 
 const WorkChatAPIContainer = (props) => {
@@ -32,7 +33,8 @@ const WorkChatAPIContainer = (props) => {
                      deleteWorkMessage={props.deleteWorkMessage}
                      updateWorkMessage={props.updateWorkMessage}
                      setWorkMessages={props.setWorkMessages}
-                     
+                     login={props.login}
+                     setUserData={props.setUserData}                     
                      />
 }
 
@@ -40,13 +42,14 @@ const WorkChatAPIContainer = (props) => {
 const mapStateToProps = (state) => ({
     messages: state.work.messages,
     isAuth: state.auth.isAuth,
-    login: state.auth.login
-})
+    login: state.auth.login,
 
+})
 
 export default compose(connect(mapStateToProps, {
     setWorkMessages,
     addWorkMessage,
     deleteWorkMessage,
-    updateWorkMessage
+    updateWorkMessage,
+    setUserData
 }), withAuthRedirect)(WorkChatAPIContainer)

@@ -33,8 +33,20 @@
   padding-right: 15px;
   color: #4D5558
 }
-
-
+.greeting{
+    background: #A9CBA7;
+    border: 2px solid #4DAE36;
+    border-radius: 10px;
+    color: #4DAE36;
+    padding: 25px;
+    text-align: center;
+    margin-top: 40px;
+    align-self: center;
+}
+.greetingIcon{
+    margin-top: 10px;
+    color: #4DAE36;
+}
 
 
 

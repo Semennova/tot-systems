@@ -6,7 +6,8 @@ export const Header = (props) => {
 
     const logout = (e)=> {
         e.preventDefault();
-        props.setUserData(null, null, false)
+        props.setIsAuth(false)
+        // props.setUserData(null, null, false)
         localStorage.setItem('user-data', null)
     }
 

@@ -13,6 +13,7 @@ export const WorkChat = (props) => {
     const [emptyMsgError, setemptyMsgError] = useState(false)
 
 
+
     const submitMessage = () => {
         if(!messageValue){
             setemptyMsgError(true)
@@ -47,7 +48,6 @@ export const WorkChat = (props) => {
         props.updateWorkMessage(newMessagesArray);
         setEdit(null)
     }
-
 
     return (
         <div className={s.workChatContainer}>

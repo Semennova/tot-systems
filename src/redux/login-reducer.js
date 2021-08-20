@@ -13,9 +13,7 @@ export const loginReducer = (state = initialState, action) => {
         case SET_USER_DATA :
             return {
                 ...state,
-                login: action.login,
-                password: action.password,
-                isAuth: action.isAuth
+               ...action.payload
             }
         case SET_IS_AUTH : 
             return {
@@ -31,9 +29,7 @@ export const loginReducer = (state = initialState, action) => {
 
 export const setUserData = (login, password, isAuth) => ({
     type: SET_USER_DATA,
-    login, 
-    password, 
-    isAuth
+    payload: {login, password, isAuth}
 
 })
 

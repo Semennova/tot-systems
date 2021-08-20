@@ -7,6 +7,13 @@ import { useEffect } from 'react'
 
 const LoginApiContainer = (props) => {
 
+    useEffect(()=>{ 
+        const data = JSON.parse(localStorage.getItem('user-data'))
+        if(data){
+            props.setIsAuth(true)
+        }
+    }, [])
+
     return <Login   setUserData={props.setUserData} 
                     setIsAuth={props.setIsAuth}
                     isAuth={props.isAuth}
