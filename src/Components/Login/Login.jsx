@@ -8,7 +8,7 @@ export const Login = (props) => {
     const [passwordValue, setPasswordValue] = useState('');
     const [loginError, setLoginError] = useState(false);
     const [passwordError, setPassWordError] = useState(false);
-    const [error, setError] = useState('')
+ 
 
     const errorStyle = {
         border: 'red 2px solid'
@@ -43,11 +43,14 @@ export const Login = (props) => {
             <form className={s.loginForm}>
             <h1>Log in <ExitToAppIcon style={{fontSize: 22}}/></h1>
          
+                <label>
+                    <input placeholder='Enter login' className={s.loginInput} type='text' style={loginError ? errorStyle : null} value={loginValue} onChange={(e)=>setLoginValue(e.target.value)}/>
+                </label>
                 
-                <input placeholder='Enter login' className={s.loginInput} type='text' style={loginError ? errorStyle : null} value={loginValue} onChange={(e)=>setLoginValue(e.target.value)}/>
-                
-                <input placeholder='Enter password' className={s.loginInput} type='password' style={passwordError ? errorStyle : null} value={passwordValue} onChange={(e)=>setPasswordValue(e.target.value)}/>
-                
+                <label>
+                     <input placeholder='Enter password' className={s.loginInput} type='password' style={passwordError ? errorStyle : null} value={passwordValue} onChange={(e)=>setPasswordValue(e.target.value)}/>
+                </label>
+               
                 {loginError && <div className={s.loginError}>Login must be between 1 and 10 latin letters</div>}
                 {passwordError && <div className={s.loginError}>Please, enter your password</div>}
                 

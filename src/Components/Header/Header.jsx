@@ -4,10 +4,9 @@ import { useEffect } from 'react'
 
 export const Header = (props) => {
 
-    const logout = (e)=> {
-        e.preventDefault();
+    const logout = ()=> {
+        // e.preventDefault();
         props.setIsAuth(false)
-        // props.setUserData(null, null, false)
         localStorage.setItem('user-data', null)
     }
 
@@ -16,11 +15,12 @@ export const Header = (props) => {
     return (
 
         <div className={s.headerContainer}>
-
                 <img alt='logo' className={s.logo} src={logo}/>
                 <h2>PLANCTONICS</h2>
-          
-           {props.isAuth ? <button onClick={logout} className={s.logBtn}>Logout</button> : <button className={s.logBtn} onClick={()=> props.history.push('/login')}>Login</button>}
+                {props.isAuth ? <button onClick={logout} className={s.logBtn}>Logout</button> : <button className={s.logBtn} onClick={()=> props.history.push('/login')}>Login</button>}
+           
         </div>
     )
 }
+
+// <button className={s.logBtn} onClick={props.isAuth ? ()=>logout() : ()=> {props.history.push('/login')}}>{props.isAuth ? 'Logout' : 'Login'}</button>

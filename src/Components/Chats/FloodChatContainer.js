@@ -1,10 +1,11 @@
 import { connect } from "react-redux"
 import { setFloodMessages, addFloodMessage, deleteFloodMessage, upadateFloodMessage } from "../../redux/flood-reducer"
-import { FloodChat } from "./FloodChat"
 import { useEffect } from 'react'
 import  data  from '../../StaticState/dataForFlood.json'
 import { compose } from "redux"
 import { withAuthRedirect } from "../../Hoc/withRedirectToLogin"
+import { FloodChat } from "./FloodChat"
+
 
 
 const FloodChatApiContainer = (props) => {
@@ -30,6 +31,8 @@ const FloodChatApiContainer = (props) => {
                       deleteFloodMessage={props.deleteFloodMessage}
                       upadateFloodMessage={props.upadateFloodMessage}
                                                     />
+
+        
 }
 
 const mapStateToProps = (state) => ({

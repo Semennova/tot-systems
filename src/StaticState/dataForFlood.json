@@ -1,12 +1,12 @@
 [
   
-        {"id": 1, "message": "I need different messages"},
-        {"id": 2, "message": "so that i can see difference"},
-        {"id": 3, "message": "between work flow and chat stuff"},
-        {"id": 4, "message": "i'm glad it worked"},
-        {"id": 5, "message": "u dont have to use fetch or axios"},
-        {"id": 6, "message": "if you dont fetch data from or to server"},
-        {"id": 7, "message": "sometimes less is more"}
+        {"id": 1, "message": "I need different messages", "time": "26.08.2021, 19:14:01 "},
+        {"id": 2, "message": "so that i can see difference", "time": "26.08.2021, 18:14:01 "},
+        {"id": 3, "message": "between work flow and chat stuff", "time": "26.08.2021, 17:14:01 "},
+        {"id": 4, "message": "i'm glad it worked", "time": "26.08.2021, 16:14:01 "},
+        {"id": 5, "message": "u dont have to use fetch or axios", "time": "26.08.2021, 15:14:01 "},
+        {"id": 6, "message": "if you dont fetch data from or to server", "time": "26.08.2021, 14:14:01 "},
+        {"id": 7, "message": "sometimes less is more", "time": "26.08.2021, 13:14:01 "}
      
  
 ]

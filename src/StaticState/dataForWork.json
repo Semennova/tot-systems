@@ -1,9 +1,9 @@
 [
   
-        {"id": 1, "message": "my first message"},
-        {"id": 2, "message": "it rains like cats and dogs"},
-        {"id": 3, "message": "why do ppl do this or that"},
-        {"id": 4, "message": "today is Monday"},
-        {"id": 5, "message": "tommorow is Friday, TGIF!)"}
+        {"id": 1, "message": "my first message", "time": "26.08.2021, 19:14:01 "},
+        {"id": 2, "message": "it rains like cats and dogs", "time": "26.08.2021, 18:14:01 "},
+        {"id": 3, "message": "why do ppl do this or that", "time": "26.08.2021, 17:14:01 "},
+        {"id": 4, "message": "today is Monday", "time": "26.08.2021, 16:14:01 "},
+        {"id": 5, "message": "tommorow is Friday, TGIF!)", "time": "26.08.2021, 15:14:01 "}
  
 ]

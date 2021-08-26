@@ -4,6 +4,7 @@ export const submitMessage = (reduxFunction, messageValue, setEmptyMsgError, set
         setTimeout(()=> setEmptyMsgError(false), 3000)
     } else {
         const newMessage = {
+            time: new Date().toLocaleString(),
             id: Math.floor(Math.random() * 10000),
             message: messageValue
         }
